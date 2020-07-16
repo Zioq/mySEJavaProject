@@ -58,17 +58,30 @@ class Database:
             'purchases_date':'DATE'
         })
 
+    def sql_query(self,query,conn):
+            try:
+                df = pd.read_sql(query, conn)
+            except Exception as e:
+                print(e.message)
+            return df        
+
     @staticmethod
-    def run():
+    def run_database():
         db = Database()
         app = db.readApplicationData()
         fit = db.readFitnessTest()
         pur = db.readPurchases()
         vis = db.readVisits()
-        print(pur.head())
         db.buildDb()
         conn = db.createDb()
         db.buildTable(vis,fit,app,pur,conn)
+        q1 = "SELECT * FROM visits LIMIT 5 "
+        #print(db.sql_query(q1,conn))
+
+        return conn
+    
+ 
+
 
 
 

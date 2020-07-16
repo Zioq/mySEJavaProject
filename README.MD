@@ -20,6 +20,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install librari
 pip install sqlite3
 pip install pandas
 pip install os
+pip install scipy==1.2.2
 ```
 
 ## Usage

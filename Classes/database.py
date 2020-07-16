@@ -5,6 +5,12 @@ import os
 
 class Database:
 
+    applications = ""
+    fitness_tests = ""
+    purchases = ""
+    visits = ""
+    conn = ""
+
     def readApplicationData(self):
         applications = pd.read_csv("./data/applications.csv")
         return applications
